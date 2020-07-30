@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadanie 6</title>
+  </head>
+  <body>
+    <script>
+
+      var settings = {
+        "size": 50,
+        "finalSize": 100,
+        "speed": 2000,
+        "colorChangeStep": 200
+      };
+
+      function randomColor(){
+        var x = Math.round(0xffffff * Math.random()).toString(16);
+        var y = 6 - x.length;
+        var z = "000000";
+        var z1 = z.substring(0, y);
+        var color = "#" + z1 + x;
+        return color;
+      }
+
+      // Animate by JS Animate
+      function squareJSanimate(settings) {
+        var square = document.createElement("div");
+        square.style.cssText = `width: ${settings.size}px; height: ${settings.size}px; position: absolute; left: 0; top: 0; background: #000;`;
+        document.body.appendChild(square);
+
+        var colorsGenerator = function () {
+            var colorChanges = parseInt((2 * (window.innerWidth - settings.finalSize)) / settings.colorChangeStep);
+            var colors = [];
+            function repeat(func, times) {
+            func();
+            times && --times && repeat(func, times);
+            }
+            repeat(function () {
+                colors.push(randomColor());
+            }, colorChanges);
+            return colors;
+        };
+        square.animate({
+            left: ["0", window.innerWidth - (settings.finalSize) + "px"], 
+            width: [`${settings.size}px`, `${settings.finalSize}px`], 
+            height: [`${settings.size}px`, `${settings.finalSize}px`], 
+            backgroundColor: colorsGenerator(),
+        }, {duration: settings.speed, easing: "linear", iterations: Infinity, direction: "alternate"});
+
+      }
+      squareJSanimate(settings);
+    </script>
+  </body>
+</html>

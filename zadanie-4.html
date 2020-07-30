@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 4</title>
+</head>
+<body>
+    <script>
+        $ep1 = 'https://baconipsum.com/api/?type=all-meat&paras=3&start-with-lorem=1&format=json';
+        $ep2 = 'https://baconipsum.com/api/?type=meat-and-filler&paras=5&format=json';
+
+        var epData1 = fetch($ep1).then(function(response){ 
+            return response.json()
+        });
+        
+        var epData2 = fetch($ep2).then(function(response){
+             return response.json()
+        });
+
+        Promise.all([epData1,epData2]).then(function(values){
+            console.log(values[0].concat(values[1]));
+        }).catch(error => console.log(`Error in executing ${error}`)) 
+
+    </script>
+</body>
+</html>

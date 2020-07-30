@@ -1,0 +1,93 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  padding: 15px; }
+
+.bg-grey {
+  background: #dedede;
+  text-align: center;
+  outline: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px; }
+
+nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; }
+  nav ul li {
+    width: 100%;
+    margin-left: 15px; }
+    nav ul li:first-child {
+      margin: 0; }
+
+.container {
+  margin: 0 auto;
+  max-width: 1180px;
+  margin-bottom: 15px; }
+
+.grid-container {
+  display: block;
+  margin-bottom: 0; }
+  .grid-container > div {
+    margin-bottom: 15px;
+    margin-left: 0;
+    margin-right: 0; }
+  @media (min-width: 1024px) {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: "c1 c2" "c1 c3"; }
+      .grid-container .quick-links-1 {
+        grid-area: c2;
+        margin-left: 7.5px; }
+      .grid-container .quick-links-2 {
+        grid-area: c3;
+        margin-left: 7.5px; }
+      .grid-container .about {
+        grid-area: c1;
+        margin-right: 7.5px; } }
+
+/*# sourceMappingURL=style.css.map */
